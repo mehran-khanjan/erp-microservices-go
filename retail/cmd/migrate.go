@@ -12,3 +12,7 @@ var migrateCmd = &cobra.Command{
 		migrate()
 	},
 }
+
+func migrate() {
+	bootstrap.Migrate()
+}
