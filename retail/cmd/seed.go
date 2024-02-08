@@ -12,3 +12,7 @@ var seedCmd = &cobra.Command{
 		seed()
 	},
 }
+
+func seed() {
+	bootstrap.Seed()
+}
