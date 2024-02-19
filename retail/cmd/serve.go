@@ -12,3 +12,7 @@ var serveCmd = &cobra.Command{
 		serve()
 	},
 }
+
+func serve() {
+	bootstrap.Serve()
+}
