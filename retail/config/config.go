@@ -5,3 +5,7 @@ type Config struct {
 	Server Server
 	DB     DB
 }
+
+type App struct {
+	Name string
+}
