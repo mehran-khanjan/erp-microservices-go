@@ -22,4 +22,7 @@ func (controller *Controller) Show(c *gin.Context) {
 		html.Render(c, http.StatusInternalServerError, "templates/errors/html/500", gin.H{"title": "Server error", "message": "error converting the id"})
 		return
 	}
+
+	// Find the article from the database
+	article, err := controller.articleService.Find(id)
 }
