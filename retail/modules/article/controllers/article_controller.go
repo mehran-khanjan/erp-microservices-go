@@ -25,4 +25,10 @@ func (controller *Controller) Show(c *gin.Context) {
 
 	// Find the article from the database
 	article, err := controller.articleService.Find(id)
+
+	// If the article is not found, show error page
+	if err != nil {
+		html.Render(c, http.StatusNotFound, "templates/errors/html/404", gin.H{"title": "Page not found", "message": err.Error()})
+		return
+	}
 }
