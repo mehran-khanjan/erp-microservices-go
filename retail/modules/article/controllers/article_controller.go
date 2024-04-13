@@ -31,4 +31,7 @@ func (controller *Controller) Show(c *gin.Context) {
 		html.Render(c, http.StatusNotFound, "templates/errors/html/404", gin.H{"title": "Page not found", "message": err.Error()})
 		return
 	}
+
+	// if article found, render article template
+	html.Render(c, http.StatusOK, "modules/article/html/show", gin.H{"title": "Show article", "article": article})
 }
