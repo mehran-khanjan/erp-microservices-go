@@ -35,3 +35,7 @@ func (controller *Controller) Show(c *gin.Context) {
 	// if article found, render article template
 	html.Render(c, http.StatusOK, "modules/article/html/show", gin.H{"title": "Show article", "article": article})
 }
+
+func (controller *Controller) Create(c *gin.Context) {
+	html.Render(c, http.StatusOK, "modules/article/html/create", gin.H{"title": "Create article"})
+}
