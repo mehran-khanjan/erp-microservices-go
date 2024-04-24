@@ -39,3 +39,8 @@ func (controller *Controller) Show(c *gin.Context) {
 func (controller *Controller) Create(c *gin.Context) {
 	html.Render(c, http.StatusOK, "modules/article/html/create", gin.H{"title": "Create article"})
 }
+
+func (controller *Controller) Store(c *gin.Context) {
+	// validate the request
+	var request articles.StoreRequest
+}
