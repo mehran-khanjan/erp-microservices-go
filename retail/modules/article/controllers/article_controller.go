@@ -43,4 +43,9 @@ func (controller *Controller) Create(c *gin.Context) {
 func (controller *Controller) Store(c *gin.Context) {
 	// validate the request
 	var request articles.StoreRequest
+	// This will infer what binder to use depending on the content-type header.
+	if err := c.ShouldBind(&request); err != nil {
+		errors.Init()
+		errors.SetFromErrors(err)
+		sessions.Set(c, "errosrs", converters.MapToString(errors.Get()))
 }
