@@ -48,4 +48,9 @@ func (controller *Controller) Store(c *gin.Context) {
 		errors.Init()
 		errors.SetFromErrors(err)
 		sessions.Set(c, "errosrs", converters.MapToString(errors.Get()))
+
+		old.Init()
+		old.Set(c)
+		sessions.Set(c, "old", converters.UrlValuesToString(old.Get()))
+
 }
