@@ -53,4 +53,6 @@ func (controller *Controller) Store(c *gin.Context) {
 		old.Set(c)
 		sessions.Set(c, "old", converters.UrlValuesToString(old.Get()))
 
+		c.Redirect(http.StatusFound, "/articles/create")
+		return
 }
