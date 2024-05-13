@@ -55,4 +55,11 @@ func (controller *Controller) Store(c *gin.Context) {
 
 		c.Redirect(http.StatusFound, "/articles/create")
 		return
+	}
+	
+	user := helpers.Auth(c)
+
+	// Create the article
+	article, err := controller.articleService.StoreAsUser(request, user)
+		
 }
