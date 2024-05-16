@@ -61,5 +61,10 @@ func (controller *Controller) Store(c *gin.Context) {
 
 	// Create the article
 	article, err := controller.articleService.StoreAsUser(request, user)
-		
+	
+	// Check if there is any error on the article creation
+	if err != nil {
+		c.Redirect(http.StatusFound, "/articles/create")
+		return
+	}
 }
