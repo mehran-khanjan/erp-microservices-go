@@ -67,4 +67,7 @@ func (controller *Controller) Store(c *gin.Context) {
 		c.Redirect(http.StatusFound, "/articles/create")
 		return
 	}
+
+	c.Redirect(http.StatusFound, fmt.Sprintf("/articles/%d", article.ID))
+
 }
