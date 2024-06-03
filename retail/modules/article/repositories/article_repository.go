@@ -15,3 +15,11 @@ func New() *ArticleRepository {
 		DB: database.Connection(),
 	}
 }
+
+func (articleRepository *ArticleRepository) List(limit int) []ArticleModel.Article {
+	var articles []ArticleModel.Article
+
+	articleRepository.DB.Limit(limit).Joins("User").Order("rand()").Find(&articles)
+
+	return articles
+}
