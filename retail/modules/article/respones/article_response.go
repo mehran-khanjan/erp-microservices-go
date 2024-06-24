@@ -14,3 +14,7 @@ type Article struct {
 	CreatedAt string
 	User      UserResponse.User
 }
+
+type Articles struct {
+	Data []Article
+}
