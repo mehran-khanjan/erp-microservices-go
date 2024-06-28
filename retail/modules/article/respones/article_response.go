@@ -29,3 +29,13 @@ func ToArticle(article ArticleModel.Article) Article {
 		User:      UserResponse.ToUser(article.User),
 	}
 }
+
+func ToArticles(articles []ArticleModel.Article) Articles {
+	var response Articles
+
+	for _, article := range articles {
+		response.Data = append(response.Data, ToArticle(article))
+	}
+
+	return response
+}
